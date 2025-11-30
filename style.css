@@ -26,9 +26,10 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-bottom: 50px;
 }
 
 button{
@@ -117,7 +118,6 @@ button:hover{
 }
 
 .attribiutions{
-    position: absolute;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -127,6 +127,7 @@ button:hover{
     color: var(--primary);
     font-weight: 500;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .output-field{
@@ -137,7 +138,8 @@ button:hover{
     border: 2px solid var(--placeholder-text);
     padding: 20px;
     font-weight: 500;
-    min-height: 200px;
+    height: 200px;
+    overflow: hidden;
 }
 
 #output-el{
@@ -165,8 +167,22 @@ button:hover{
     font-weight: 400;
 }
 
+#cpy-btn{
+    width: 70px;
+    height: 40px;
+    border: 3px solid var(--primary);
+    font-size: 20px;
+    border-radius: 10px;
+    color: var(--dark);
+    background-color: var(--primary);
+}
+
 @media(max-width: 480px) {
 
+    #cpy-btn{
+        width: 100%;
+    }
+    
     body{
         margin: 0px 10px;
     }
