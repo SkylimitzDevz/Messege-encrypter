@@ -3,6 +3,19 @@ const outputEl = document.getElementById("output-el")
 const encryptBtn = document.getElementById("enctypt-btn")
 const decryptBtn = document.getElementById("decrypt-btn")
 
+const symbols = [
+    "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
+    "-", "_", "=", "+", "[", "]", "{", "}", ";", ":",
+    "'", ",", ".", "<", ">", "/", "?", "|",
+    "~", "`"
+]
+
+function getSymbol(array){
+    let i = Math.floor(Math.random()*array.length)
+    return array[i]
+}
+
+
 encryptBtn.addEventListener("click", function(){
     encrypt(inputMsg.value)
 })
@@ -12,21 +25,31 @@ decryptBtn.addEventListener("click", function(){
 })
 
 function encrypt(inputEl){
+    
+
     inputMsg.value = ""
     let code = ""
     for (let i = 0; i < inputEl.length; i++) {
-        code += `$${inputEl.charCodeAt(i)}`
+        code += `${getSymbol(symbols)}${inputEl.charCodeAt(i)}`
     }
     outputEl.textContent = code
 }
 
 function deCrypt(inputEl) {
     inputMsg.value = ""
-    let cleanArray = inputEl.split("$").slice(1).map(Number)  // convert to numbers
     let code = ""
+
+    let clean = inputEl
+
+    for(let sym of symbols) {
+        clean = clean.replaceAll(sym, ",")
+    }
+
+    let cleanArray = clean.split(",").filter(Boolean).map(Number)
     
-    for (let i = 0; i < cleanArray.length; i++){
-        code += String.fromCharCode(cleanArray[i])
+    
+    for(let n of cleanArray) {
+        code += String.fromCharCode(n)
     }
     outputEl.textContent = code
 }
