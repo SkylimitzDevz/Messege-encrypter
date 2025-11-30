@@ -2,6 +2,7 @@ const inputMsg = document.getElementById("input-field")
 const outputEl = document.getElementById("output-el")
 const encryptBtn = document.getElementById("enctypt-btn")
 const decryptBtn = document.getElementById("decrypt-btn")
+const cpyBtn = document.getElementById("cpy-btn")
 
 const symbols = [
     "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
@@ -92,7 +93,15 @@ const symbolSwapMap = {
 const numOriginal = makeOriginalMap(numSwapMap)
 const symOriginal = makeOriginalMap(symbolSwapMap)
 
-
+cpyBtn.addEventListener("click", () => {
+  const text = outputEl.textContent;
+  navigator.clipboard.writeText(text);
+  
+  cpyBtn.textContent = "Copied!";
+  setTimeout(() => {
+    cpyBtn.textContent = "Copy";
+  }, 700);
+});
 
 function getSymbol(array){
     let i = Math.floor(Math.random()*array.length)
