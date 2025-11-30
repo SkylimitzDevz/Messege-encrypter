@@ -94,6 +94,12 @@ button:hover{
     color: transparent;
 }
 
+.btn:focus{
+    color: var(--dim-green);
+    background-color: var(--primary);
+    border-color: var(--placeholder-text);
+}
+
 
 #follow-btn{
     height: 30px;
