@@ -135,6 +135,7 @@ button:hover{
     border: 2px solid var(--placeholder-text);
     padding: 20px;
     font-weight: 500;
+    min-height: 200px;
 }
 
 #output-el{
@@ -149,4 +150,25 @@ button:hover{
 .title{
     font-size: 25px;
     margin-bottom: 10px;
+}
+
+@media(max-width: 480px) {
+
+    body{
+        margin: 0px 10px;
+    }
+
+    .container{
+        height: fit-content;
+        gap: 20px;
+    }
+
+    .btn-container{
+        flex-direction: column;
+    }
+
+    .title{
+        text-align: center;
+    }
+
 }
