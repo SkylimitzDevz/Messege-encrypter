@@ -3,6 +3,17 @@ const outputEl = document.getElementById("output-el")
 const encryptBtn = document.getElementById("enctypt-btn")
 const decryptBtn = document.getElementById("decrypt-btn")
 const cpyBtn = document.getElementById("cpy-btn")
+const pasteBtn = document.getElementById("paste-btn")
+
+pasteBtn.addEventListener("click", () => {
+    navigator.clipboard.readText().then(text => {
+        inputMsg.value = text
+        pasteBtn.textContent = "Pasted!"
+        setTimeout(() => {
+            pasteBtn.textContent = "Paste"
+        }, 700)
+    })
+})
 
 const symbols = [
     "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",

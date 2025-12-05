@@ -167,7 +167,12 @@ button:hover{
     font-weight: 400;
 }
 
-#cpy-btn{
+.clipboard-btns{
+    display: flex;
+    gap: 10px;
+}
+
+#cpy-btn, #paste-btn{
     width: 70px;
     height: 40px;
     border: 3px solid var(--primary);
@@ -179,7 +184,7 @@ button:hover{
 
 @media(max-width: 480px) {
 
-    #cpy-btn{
+    #cpy-btn, #paste-btn{
         width: 100%;
     }
     
